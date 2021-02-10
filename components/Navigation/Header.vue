@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import SideNavToggle from "@/components/Navigations/SideNavToggle.vue";
+import SideNavToggle from "@/components/Navigation/SideNavToggle.vue";
 
 export default Vue.extend({
   name: "Header",
