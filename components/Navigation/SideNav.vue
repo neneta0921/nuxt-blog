@@ -3,7 +3,7 @@
     <div v-if="show" class="sidenav-backdrop" @click="$emit('close')"></div>
     <transition name="slide-side">
       <nav v-if="show" class="sidenav">
-        <ul class="sidenav-list">
+        <ul class="sidenav-list" @click="$emit('close')">
           <li class="sidenav-item">
             <nuxt-link to="/posts">Blog</nuxt-link>
           </li>
@@ -27,9 +27,9 @@ export default Vue.extend({
   props: {
     show: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 });
 </script>
 

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Nuxt />
+    <Header @sidenavToggle="displaySidenav = !displaySidenav" />
+    <SideNav :show="displaySidenav" @close="displaySidenav = false" />
+    <nuxt />
   </div>
 </template>
 
@@ -13,6 +15,11 @@ export default Vue.extend({
   components: {
     Header,
     SideNav,
+  },
+  data() {
+    return {
+      displaySidenav: false,
+    };
   },
 });
 </script>

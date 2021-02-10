@@ -3,37 +3,15 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-      <PostPreview
-        id="1"
-        thumbnail="https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg"
-        title="Hello there!"
-        previewText="This is my first post!"
-      />
-      <PostPreview
-        id="2"
-        thumbnail="https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg"
-        title="Hello there! - the second -time"
-        previewText="This is my second post!"
-      />
-      <PostPreview
-        id="3"
-        thumbnail="https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg"
-        title="Hello there! - the third time"
-        previewText="This is my third post!"
-      />
-    </section>
+    <PostList />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import PostPreview from "@/components/Posts/PostPreview.vue";
-export default Vue.extend({
-  components: {
-    PostPreview,
-  },
-});
+import PostList from "@/components/Posts/PostList.vue";
+
+export default Vue.extend({});
 </script>
 
 <style scoped>
@@ -62,15 +40,7 @@ export default Vue.extend({
 
 @media (min-width: 768px) {
   .intro h1 {
-    font-size: 2px;
+    font-size: 2rem;
   }
-}
-
-.featured-posts {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 </style>
