@@ -1,75 +1,106 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        my-second-nuxt-app
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="home-page">
+    <section class="intro">
+      <h1>Get the latest tech news!</h1>
+    </section>
+    <section class="featured-posts">
+      <nuxt-link :to="'/posts/' + 1" class="post-preview">
+        <article>
+          <div
+            class="post-thumbnail"
+            style="background-image: url('https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg')"
+          ></div>
+          <div class="post-content">
+            <h1>Post Title</h1>
+            <p>Preview Text</p>
+          </div>
+        </article>
+      </nuxt-link>
+      <nuxt-link :to="'/posts/' + 2" class="post-preview">
+        <article>
+          <div
+            class="post-thumbnail"
+            style="background-image: url('https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg')"
+          ></div>
+          <div class="post-content">
+            <h1>Post Title 2</h1>
+            <p>Preview Text 2</p>
+          </div>
+        </article>
+      </nuxt-link>
+    </section>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<style scoped>
+.intro {
+  height: 300px;
+  position: relative;
+  padding: 30px;
+  background-position: center;
+  background-size: cover;
+}
 
-export default Vue.extend({})
-</script>
+.intro h1 {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  font-size: 1.5rem;
+  color: black;
+  background-color: rgb(211, 211, 211);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px black;
+  border: 1px solid black;
+}
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
+@media (min-width: 768px) {
+  .intro h1 {
+    font-size: 2px;
+  }
+}
+
+.featured-posts {
+  padding: 20px;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+}
+
+.post-preview {
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px #ccc;
+  background-color: white;
+  width: 90%;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+@media (min-width: 850px) {
+  .post-preview {
+    width: 400px;
+    margin: 10px;
+  }
+}
+
+.post-thumbnail {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+}
+
+.post-content {
+  padding: 10px;
   text-align: center;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+a:hover .post-content,
+a:active .post-content {
+  background-color: #ccc;
 }
 </style>

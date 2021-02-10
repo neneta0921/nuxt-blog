@@ -7,6 +7,7 @@
 <style>
 html {
   font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
