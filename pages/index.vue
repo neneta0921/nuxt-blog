@@ -41,6 +41,7 @@ export default Vue.extend({
   height: 300px;
   position: relative;
   padding: 30px;
+  background-image: url("~assets/images/main-page-background.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -54,9 +55,9 @@ export default Vue.extend({
   color: black;
   background-color: rgb(211, 211, 211);
   padding: 10px;
+  border: 1px solid black;
   border-radius: 10px;
   box-shadow: 3px 3px 3px black;
-  border: 1px solid black;
 }
 
 @media (min-width: 768px) {
