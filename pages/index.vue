@@ -28,11 +28,11 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PostPreview from "@/components/Posts/PostPreview";
+import PostPreview from "@/components/Posts/PostPreview.vue";
 export default Vue.extend({
   components: {
-    PostPreview
-  }
+    PostPreview,
+  },
 });
 </script>
 

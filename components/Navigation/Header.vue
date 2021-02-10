@@ -25,13 +25,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import SideNavToggle from "@/components/Navigations/SideNavToggle";
+import SideNavToggle from "@/components/Navigations/SideNavToggle.vue";
 
 export default Vue.extend({
   name: "Header",
   components: {
-    SideNavToggle
-  }
+    SideNavToggle,
+  },
 });
 </script>
 
