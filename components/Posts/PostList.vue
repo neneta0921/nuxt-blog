@@ -21,6 +21,17 @@
   </section>
 </template>
 
+<script lang="ts">
+import Vue from "vue";
+import PostPreview from "@/components/Posts/PostPreview.vue";
+
+export default Vue.extend({
+  components: {
+    PostPreview,
+  },
+});
+</script>
+
 <style lang="scss" scoped>
 .post-list {
   padding: 20px;
