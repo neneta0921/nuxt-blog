@@ -25,9 +25,12 @@ export default Vue.extend({
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Open Sans", sans-serif;
-  box-sizing: border-box;
 }
 
 body {

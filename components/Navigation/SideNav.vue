@@ -49,7 +49,7 @@ export default Vue.extend({
     width: 100%;
   }
 
-  &-backup {
+  &-backdrop {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -78,6 +78,15 @@ export default Vue.extend({
         color: red;
       }
     }
+  }
+}
+
+.slide-side-enter,
+.slide-side-leave-to {
+  transform: translateX(-100%);
+
+  &-active {
+    transition: all 0.3s ease-out;
   }
 }
 </style>

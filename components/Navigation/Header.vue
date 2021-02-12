@@ -93,7 +93,7 @@ export default Vue.extend({
 }
 
 @media (min-width: 768px) {
-  .navigation-items {
+  .nav {
     display: block;
   }
 }
