@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -11,7 +11,38 @@
 import Vue from "vue";
 import PostList from "@/components/Posts/PostList.vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+  components: {
+    PostList,
+  },
+  data() {
+    return {
+      loadedPosts: [
+        {
+          id: "1",
+          title: "First Post",
+          previewText: "This is our first post!",
+          thumbnail:
+            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+        },
+        {
+          id: "2",
+          title: "Second Post",
+          previewText: "This is our second post!",
+          thumbnail:
+            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+        },
+        {
+          id: "3",
+          title: "Third Post",
+          previewText: "This is our third post!",
+          thumbnail:
+            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+        },
+      ],
+    };
+  },
+});
 </script>
 
 <style scoped>
