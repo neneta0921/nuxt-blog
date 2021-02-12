@@ -45,7 +45,7 @@ export default Vue.extend({
   & input,
   & textarea {
     display: block;
-    width: 100%;
+    width: 95%;
     font: inherit;
     border: 1px solid #ccc;
     padding: 5px;
