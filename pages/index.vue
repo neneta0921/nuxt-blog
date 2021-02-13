@@ -10,38 +10,48 @@
 <script lang="ts">
 import Vue from "vue";
 import PostList from "@/components/Posts/PostList.vue";
+import { LoadedPosts } from "@/types/post";
 
 export default Vue.extend({
   components: {
     PostList,
   },
-  data() {
-    return {
-      loadedPosts: [
-        {
-          id: "1",
-          title: "First Post",
-          previewText: "This is our first post!",
-          thumbnail:
-            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-        },
-        {
-          id: "2",
-          title: "Second Post",
-          previewText: "This is our second post!",
-          thumbnail:
-            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-        },
-        {
-          id: "3",
-          title: "Third Post",
-          previewText: "This is our third post!",
-          thumbnail:
-            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-        },
-      ],
-    };
+  asyncData(context, callback) {
+    setTimeout(() => {
+      console.log("asyncData is executed");
+      callback(null, {
+        loadedPosts: [
+          {
+            id: "1",
+            title: "First Post",
+            previewText: "This is our first post!",
+            thumbnail:
+              "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+          },
+          {
+            id: "2",
+            title: "Second Post",
+            previewText: "This is our second post!",
+            thumbnail:
+              "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+          },
+          {
+            id: "3",
+            title: "Third Post",
+            previewText: "This is our third post!",
+            thumbnail:
+              "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+          },
+        ],
+      });
+    }, 1500);
   },
+  // data() {
+  //   return {
+  //     loadedPosts: [],
+  //   };
+  // },
+  created() {},
 });
 </script>
 

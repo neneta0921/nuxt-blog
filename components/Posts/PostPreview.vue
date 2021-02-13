@@ -48,17 +48,27 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .post-preview {
   border: 1px solid #ccc;
   box-shadow: 0 2px 2px #ccc;
   background-color: white;
   width: 90%;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 a {
   text-decoration: none;
   color: black;
+
+  &:hover .post-content,
+  &:active .post-content {
+    background-color: #ccc;
+  }
 }
 
 @media (min-width: 850px) {
@@ -72,15 +82,11 @@ a {
   width: 100%;
   height: 200px;
   background-position: center;
+  background-size: cover;
 }
 
 .post-content {
   padding: 10px;
   text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>
