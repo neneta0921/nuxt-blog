@@ -43,5 +43,15 @@ export default {
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+
+  // progress-bar
+  loading: {
+    color: "#fa923f",
+    height: "5px"
+  },
+  loadingIndicator: {
+    name: "circle",
+    color: "#fa923f"
+  }
 };
