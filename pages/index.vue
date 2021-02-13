@@ -18,7 +18,6 @@ export default Vue.extend({
   },
   asyncData(context, callback) {
     setTimeout(() => {
-      console.log("asyncData is executed");
       callback(null, {
         loadedPosts: [
           {
