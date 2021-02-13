@@ -10,6 +10,7 @@
 import Vue from "vue";
 import axios from "axios";
 import AdminPostForm from "@/components/Admin/AdminPostForm.vue";
+import { PostData } from "@/types/post";
 
 export default Vue.extend({
   layout: "admin",
@@ -29,7 +30,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    async onSubmitted(editedPost) {
+    async onSubmitted(editedPost: PostData) {
       try {
         const res = await axios.put(
           `https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts/${this.$route.params.postId}.json`,

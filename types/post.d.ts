@@ -11,4 +11,5 @@ export interface PostData {
   content: string;
   previewText: string;
   thumbnail: string;
+  updatedDate?: object;
 }
