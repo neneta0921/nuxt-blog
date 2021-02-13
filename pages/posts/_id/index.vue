@@ -35,6 +35,9 @@ export default Vue.extend({
     } catch (e) {
       context.error(e);
     }
+  },
+  head: {
+    title: "A Blog Post"
   }
 });
 </script>
