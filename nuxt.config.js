@@ -60,11 +60,5 @@ export default {
     baseUrl:
       process.env.BASE_URL ||
       "https://nuxt-blog-e2622-default-rtdb.firebaseio.com"
-  },
-
-  // CSS Animation
-  transition: {
-    name: "fade",
-    mode: "out-in"
   }
 };
