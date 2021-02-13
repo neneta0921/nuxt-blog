@@ -25,7 +25,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["~assets/styles/main.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -55,9 +55,16 @@ export default {
     color: "#fa923f"
   },
 
+  // Environment Variables
   env: {
     baseUrl:
       process.env.BASE_URL ||
       "https://nuxt-blog-e2622-default-rtdb.firebaseio.com"
+  },
+
+  // CSS Animation
+  transition: {
+    name: "fade",
+    mode: "out-in"
   }
 };
