@@ -1,7 +1,7 @@
 <template>
   <div class="admin-post-page">
     <section class="update-form">
-      <AdminPostForm :post="loadedPost" />
+      <AdminPostForm :post="loadedPost" @submit="onSubmitted" />
     </section>
   </div>
 </template>
@@ -26,6 +26,19 @@ export default Vue.extend({
       };
     } catch (e) {
       context.error(e);
+    }
+  },
+  methods: {
+    async onSubmitted(editedPost) {
+      try {
+        const res = await axios.put(
+          `https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts/${this.$route.params.postId}.json`,
+          editedPost
+        );
+        this.$router.push("/admin");
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 });

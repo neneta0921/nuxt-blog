@@ -20,11 +20,11 @@ export default Vue.extend({
   methods: {
     async onSubmitted(postData: PostData) {
       try {
-        const result = await axios.post(
+        const res = await axios.post(
           "https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json",
           { ...postData, updatedDate: new Date() }
         );
-        console.log(result);
+        this.$router.push("/admin");
       } catch (error) {
         console.log(error);
       }
