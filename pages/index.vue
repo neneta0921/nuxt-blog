@@ -9,24 +9,14 @@
 
 <script lang="ts">
 import Vue from "vue";
-import PostList from "@/components/Posts/PostList.vue";
 import { LoadedPosts } from "@/types/post";
 
 export default Vue.extend({
-  components: {
-    PostList,
-  },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
-    },
-  },
-  // data() {
-  //   return {
-  //     loadedPosts: [],
-  //   };
-  // },
-  created() {},
+    }
+  }
 });
 </script>
 

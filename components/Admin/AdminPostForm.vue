@@ -32,14 +32,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import AppButton from "@/components/UI/AppButton.vue";
-import AppControlInput from "@/components/UI/AppControlInput.vue";
 
 export default Vue.extend({
-  components: {
-    AppButton,
-    AppControlInput
-  },
   props: {
     post: {
       type: Object,

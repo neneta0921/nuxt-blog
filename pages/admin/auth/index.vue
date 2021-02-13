@@ -19,21 +19,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import AppButton from "@/components/UI/AppButton.vue";
-import AppControlInput from "@/components/UI/AppControlInput.vue";
 
 export default Vue.extend({
   name: "AdminAuthPage",
   layout: "admin",
-  components: {
-    AppButton,
-    AppControlInput,
-  },
   data() {
     return {
-      isLogin: true,
+      isLogin: true
     };
-  },
+  }
 });
 </script>
 
