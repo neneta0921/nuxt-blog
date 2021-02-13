@@ -12,34 +12,46 @@ export default Vue.extend({
   components: {
     PostList,
   },
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: [
-          {
-            id: "1",
-            title: "First Post",
-            previewText: "This is our first post!",
-            thumbnail:
-              "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-          },
-          {
-            id: "2",
-            title: "Second Post",
-            previewText: "This is our second post!",
-            thumbnail:
-              "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-          },
-          {
-            id: "3",
-            title: "Third Post",
-            previewText: "This is our third post!",
-            thumbnail:
-              "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-          },
-        ],
+  asyncData(context) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          loadedPosts: [
+            {
+              id: "1",
+              title: "First Post",
+              previewText: "This is our first post!",
+              thumbnail:
+                "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+            },
+            {
+              id: "2",
+              title: "Second Post",
+              previewText: "This is our second post!",
+              thumbnail:
+                "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+            },
+            {
+              id: "3",
+              title: "Third Post",
+              previewText: "This is our third post!",
+              thumbnail:
+                "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
+            },
+          ],
+        });
+      }, 1000);
+    })
+      .then((data) => {
+        return data;
+      })
+      .catch((e) => {
+        context.error(new Error());
       });
-    }, 1000);
+  },
+  created() {
+    this.$store.dispatch("setPosts", this.loadedPosts);
+    console.log(this.$store.getters.loadedPosts);
   },
 });
 </script>
