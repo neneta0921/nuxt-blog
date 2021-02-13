@@ -12,17 +12,19 @@ const createStore = () => {
       }
     },
     actions: {
-      nuxtServerInit(vuexContext, context) {
-        return axios
-          .get("https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json")
-          .then(res => {
-            const postsArray = [];
-            for (const key in res.data) {
-              postsArray.push({ ...res.data[key], id: key });
-            }
-            vuexContext.commit("setPosts", postsArray);
-          })
-          .catch(e => context.error(e));
+      async nuxtServerInit(vuexContext, context) {
+        try {
+          const res = await axios.get(
+            "https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json"
+          );
+          const postsArray = [];
+          for (const key in res.data) {
+            postsArray.push({ ...res.data[key], id: key });
+          }
+          return vuexContext.commit("setPosts", postsArray);
+        } catch (e) {
+          context.error(e);
+        }
       },
       setPosts(vuexContext, posts) {
         vuexContext.commit("setPosts", posts);

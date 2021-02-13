@@ -21,7 +21,7 @@ export default Vue.extend({
       try {
         const result = await axios.post(
           "https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json",
-          postData
+          { ...postData, updatedDate: new Date() }
         );
         console.log(result);
       } catch (error) {

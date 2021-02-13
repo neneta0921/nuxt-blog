@@ -21,24 +21,21 @@
 
 <script lang="ts">
 import Vue from "vue";
+import axios from "axios";
 
 export default Vue.extend({
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: "1",
-          title: "First Post (ID: " + context.route.params.id + ")",
-          previewText: "This is our first post!",
-          author: "neneta",
-          updatedDate: new Date(),
-          content: "Some dummy text which is definitely not the preview.",
-          thumbnail:
-            "https://www.digieffects.com/wp-content/uploads/2020/08/Tech-news.jpg",
-        },
-      });
-    }, 1000);
-  },
+  async asyncData(context) {
+    try {
+      const res = await axios.get(
+        `https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts/${context.params.id}.json`
+      );
+      return {
+        loadedPost: res.data
+      };
+    } catch (e) {
+      context.error(e);
+    }
+  }
 });
 </script>
 
