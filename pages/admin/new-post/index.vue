@@ -10,6 +10,7 @@
 import Vue from "vue";
 import axios from "axios";
 import AdminPostForm from "@/components/Admin/AdminPostForm.vue";
+import { PostData } from "@/types/post";
 
 export default Vue.extend({
   layout: "admin",
@@ -17,7 +18,7 @@ export default Vue.extend({
     AdminPostForm
   },
   methods: {
-    async onSubmitted(postData) {
+    async onSubmitted(postData: PostData) {
       try {
         const result = await axios.post(
           "https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json",

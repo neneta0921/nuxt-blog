@@ -4,3 +4,11 @@ export interface LoadedPosts {
   previewText?: string;
   thumbnail?: string;
 }
+
+export interface PostData {
+  author: string;
+  title: string;
+  content: string;
+  previewText: string;
+  thumbnail: string;
+}
