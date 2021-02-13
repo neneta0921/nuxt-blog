@@ -6,11 +6,16 @@
           >Author Name</AppControlInput
         >
         <AppControlInput v-model="editedPost.title">Title</AppControlInput>
-        <AppControlInput v-model="editedPost.thumbnailLink"
+        <AppControlInput v-model="editedPost.thumbnail"
           >Thumbnail Link</AppControlInput
         >
         <AppControlInput control-type="textarea" v-model="editedPost.content"
           >Content</AppControlInput
+        >
+        <AppControlInput
+          control-type="textarea"
+          v-model="editedPost.previewText"
+          >Preview Text</AppControlInput
         >
         <AppButton type="submit">Save</AppButton>
         <AppButton
@@ -33,13 +38,13 @@ import AppControlInput from "@/components/UI/AppControlInput.vue";
 export default Vue.extend({
   components: {
     AppButton,
-    AppControlInput,
+    AppControlInput
   },
   props: {
     post: {
       type: Object,
-      required: false,
-    },
+      required: false
+    }
   },
   data() {
     return {
@@ -48,9 +53,10 @@ export default Vue.extend({
         : {
             author: "",
             title: "",
-            thumbnailLink: "",
+            thumbnail: "",
             content: "",
-          },
+            previewText: ""
+          }
     };
   },
   methods: {
@@ -61,8 +67,8 @@ export default Vue.extend({
     onCancel() {
       // Navigation back
       this.$router.push("/admin");
-    },
-  },
+    }
+  }
 });
 </script>
 
