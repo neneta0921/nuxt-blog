@@ -25,9 +25,7 @@ const createStore = () => {
     actions: {
       async nuxtServerInit(vuexContext, context) {
         try {
-          const res = await axios.get(
-            "https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json"
-          );
+          const res = await axios.get(`${process.env.baseUrl}/posts.json`);
           const postsArray = [];
           for (const key in res.data) {
             postsArray.push({ ...res.data[key], id: key });
@@ -41,7 +39,7 @@ const createStore = () => {
         try {
           const createdPost = { ...post, updatedDate: new Date() };
           const res = await axios.post(
-            "https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json",
+            `${process.env.baseUrl}/posts.json`,
             createdPost
           );
           vuexContext.commit("addPost", {
@@ -56,7 +54,7 @@ const createStore = () => {
       async editPost(vuexContext, editedPost) {
         try {
           const res = await axios.put(
-            `https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts/${editedPost.id}.json`,
+            `${process.env.baseUrl}/posts/${editedPost.id}.json`,
             editedPost
           );
           vuexContext.commit("editPost", editedPost);

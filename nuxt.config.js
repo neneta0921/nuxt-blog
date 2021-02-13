@@ -53,5 +53,11 @@ export default {
   loadingIndicator: {
     name: "circle",
     color: "#fa923f"
+  },
+
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      "https://nuxt-blog-e2622-default-rtdb.firebaseio.com"
   }
 };

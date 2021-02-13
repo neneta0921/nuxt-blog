@@ -20,7 +20,7 @@ export default Vue.extend({
   async asyncData(context) {
     try {
       const res = await axios.get(
-        `https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts/${context.params.postId}.json`
+        `${process.env.baseUrl}/posts/${context.params.postId}.json`
       );
       return {
         loadedPost: { ...res.data, id: context.params.postId }
