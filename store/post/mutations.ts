@@ -1,7 +1,7 @@
 import { PostData } from "@/types/post";
 
-export default {
-  setPosts(state: any, posts: string[]) {
+export default () => ({
+  setPosts(state: any, posts: any) {
     state.loadedPosts = posts;
   },
 
@@ -17,4 +17,4 @@ export default {
     // update post
     state.loadedPosts[postIndex] = editedPost;
   }
-};
+});

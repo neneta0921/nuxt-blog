@@ -1,6 +1,18 @@
 import axios from "axios";
+import { PostData } from "@/types/post";
 
-export default () => ({
+export const state = () => ({
+  // loadedPosts: Array()
+  loadedPosts: []
+});
+
+export const getters = {
+  loadedPosts(state: any) {
+    return state.loadedPosts;
+  }
+};
+
+export const actions = {
   async addPost(vuexContext: any, post: any) {
     try {
       const createdPost = { ...post, updatedDate: new Date() };
@@ -34,4 +46,23 @@ export default () => ({
   setPosts(vuexContext: any, posts: any) {
     vuexContext.commit("setPosts", posts);
   }
-});
+};
+
+export const mutations = {
+  setPosts(state: any, posts: any) {
+    state.loadedPosts = posts;
+  },
+
+  addPost(state: any, post: PostData) {
+    state.loadedPosts.push(post);
+  },
+
+  editPost(state: any, editedPost: any) {
+    const postIndex = state.loadedPosts.findIndex(
+      (post: any) => post.id === editedPost.id
+    );
+
+    // update post
+    state.loadedPosts[postIndex] = editedPost;
+  }
+};

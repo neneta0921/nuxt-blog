@@ -1,3 +1,4 @@
-export default {
-  loadedPosts: Array()
-};
+export default () => ({
+  // loadedPosts: Array()
+  loadedPosts: []
+});

@@ -19,7 +19,8 @@ export default Vue.extend({
   layout: "admin",
   computed: {
     loadedPosts() {
-      return this.$store.getters.loadedPosts;
+      // return this.$store.getters.loadedPosts;
+      return this.$store.getters["post/loadedPosts"];
     }
   }
 });
