@@ -1,8 +1,8 @@
 export interface LoadedPosts {
-  id?: string;
-  title?: string;
-  previewText?: string;
-  thumbnail?: string;
+  id: string;
+  title: string;
+  previewText: string;
+  thumbnail: string;
 }
 
 export interface PostData {
