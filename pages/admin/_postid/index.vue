@@ -14,9 +14,11 @@ import { PostData } from "@/types/post";
 
 export default Vue.extend({
   layout: "admin",
+
   components: {
     AdminPostForm
   },
+
   async asyncData(context) {
     try {
       const res = await axios.get(
@@ -29,9 +31,10 @@ export default Vue.extend({
       context.error(e);
     }
   },
+
   methods: {
     async onSubmitted(editedPost: PostData) {
-      await this.$store.dispatch("editPost", editedPost);
+      await this.$store.dispatch("post/editPost", editedPost);
       this.$router.push("/admin");
     }
   }

@@ -10,7 +10,6 @@ import Vue from "vue";
 export default Vue.extend({
   computed: {
     loadedPosts() {
-      // return this.$store.getters.loadedPosts;
       return this.$store.getters["post/loadedPosts"];
     }
   }

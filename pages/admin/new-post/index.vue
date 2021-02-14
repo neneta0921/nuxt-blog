@@ -19,7 +19,7 @@ export default Vue.extend({
   },
   methods: {
     async onSubmitted(postData: PostData) {
-      await this.$store.dispatch("addPost", postData);
+      await this.$store.dispatch("post/addPost", postData);
       this.$router.push("/admin");
     }
   }

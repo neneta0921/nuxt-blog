@@ -9,19 +9,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-// import { mapGetters } from "vuex";
-// import { LoadedPosts } from "@/types/post";
+import { mapGetters } from "vuex";
 
 export default Vue.extend({
   computed: {
     loadedPosts() {
-      // return this.$store.state.post.loadedPosts;
-      console.log(this.$store.getters["post/loadedPosts"]);
-      // console.log(this.$store.getters["post/loadedPosts"]);
       return this.$store.getters["post/loadedPosts"];
-      // return this.$store.getters.post.loadedPosts;
     }
-    // ...mapGetters(["post/loadedPosts"])
   }
 });
 </script>
