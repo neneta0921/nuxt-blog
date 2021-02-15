@@ -37,20 +37,13 @@ export default Vue.extend({
   },
   methods: {
     async onSubmit() {
-      let authUrl = "";
-      this.isLogin
-        ? (authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.fbAPIKey}`)
-        : (authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbAPIKey}`);
-      try {
-        const res = await axios.post(authUrl, {
-          email: this.email,
-          password: this.password,
-          returnSecureToken: true,
-        });
-        console.log(res);
-      } catch (error) {
-        console.log(error);
-      }
+      await this.$store.dispatch("post/authenticateUser", {
+        isLogin: this.isLogin,
+        email: this.email,
+        password: this.password,
+      });
+
+      this.$router.push("/admin");
     },
   },
 });

@@ -3,7 +3,8 @@ import { PostData } from "@/types/post";
 
 export const state = () => ({
   // loadedPosts: Array()
-  loadedPosts: []
+  loadedPosts: [],
+  token: null
 });
 
 export const getters = {
@@ -45,6 +46,26 @@ export const actions = {
 
   setPosts(vuexContext: any, posts: any) {
     vuexContext.commit("setPosts", posts);
+  },
+
+  async authenticateUser(vuexContext: any, authData: any) {
+    // Change Endpoint URL, depend on Login or not
+    let authUrl = "";
+    authData.isLogin
+      ? (authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.fbAPIKey}`)
+      : (authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbAPIKey}`);
+
+    // Try Login or Signup
+    try {
+      const res = await axios.post(authUrl, {
+        email: authData.email,
+        password: authData.password,
+        returnSecureToken: true
+      });
+      return vuexContext.commit("setToken", res.data.idToken);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 
@@ -64,5 +85,9 @@ export const mutations = {
 
     // update post
     state.loadedPosts[postIndex] = editedPost;
+  },
+
+  setToken(state: any, token: string) {
+    state.token = token;
   }
 };
