@@ -12,6 +12,7 @@ import Header from "@/components/Navigation/Header.vue";
 import SideNav from "@/components/Navigation/SideNav.vue";
 
 export default Vue.extend({
+  // middleware: "log",
   components: {
     Header,
     SideNav,

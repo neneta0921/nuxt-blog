@@ -67,4 +67,8 @@ export default {
       process.env.BASE_URL ||
       "https://nuxt-blog-e2622-default-rtdb.firebaseio.com"
   }
+
+  // router: {
+  //   middleware: "log"
+  // }
 };

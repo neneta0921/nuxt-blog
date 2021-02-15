@@ -8,11 +8,12 @@
 import Vue from "vue";
 
 export default Vue.extend({
+  middleware: "log",
   computed: {
     loadedPosts() {
       return this.$store.getters["post/loadedPosts"];
-    }
-  }
+    },
+  },
 });
 </script>
 
