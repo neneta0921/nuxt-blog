@@ -1,9 +1,13 @@
 <template>
   <div class="admin-auth-page">
     <div class="auth-container">
-      <form>
-        <AppControlInput type="email">E-Mail Address</AppControlInput>
-        <AppControlInput type="password">Password</AppControlInput>
+      <form @submit.prevent="onSubmit">
+        <AppControlInput type="email" v-model="email"
+          >E-Mail Address</AppControlInput
+        >
+        <AppControlInput type="password" v-model="password"
+          >Password</AppControlInput
+        >
         <AppButton type="submit">{{ isLogin ? "Login" : "Sign Up" }}</AppButton>
         <AppButton
           type="button"
@@ -19,15 +23,46 @@
 
 <script lang="ts">
 import Vue from "vue";
+import axios from "axios";
 
 export default Vue.extend({
   name: "AdminAuthPage",
   layout: "admin",
   data() {
     return {
-      isLogin: true
+      isLogin: true,
+      email: "",
+      password: "",
     };
-  }
+  },
+  methods: {
+    async onSubmit() {
+      try {
+        console.log(
+          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${process.env.fbAPIKey}`
+        );
+        const res = await axios.post(
+          `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbAPIKey}`,
+          {
+            email: this.email,
+            password: this.password,
+            returnSecureToken: true,
+          }
+        );
+        console.log(res);
+      } catch (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log(error.response.data);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log("Error", error.message);
+        }
+      }
+    },
+  },
 });
 </script>
 
