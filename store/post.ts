@@ -2,7 +2,6 @@ import axios from "axios";
 import { PostData } from "@/types/post";
 
 export const state = () => ({
-  // loadedPosts: Array()
   loadedPosts: [],
   token: null
 });
@@ -18,7 +17,7 @@ export const actions = {
     try {
       const createdPost = { ...post, updatedDate: new Date() };
       const res = await axios.post(
-        `${process.env.baseUrl}/posts.json`,
+        `${process.env.baseUrl}/posts.json?auth=${vuexContext.state.token}`,
         createdPost
       );
       vuexContext.commit("addPost", {
@@ -34,7 +33,7 @@ export const actions = {
   async editPost(vuexContext: any, editedPost: any) {
     try {
       const res = await axios.put(
-        `${process.env.baseUrl}/posts/${editedPost.id}.json`,
+        `${process.env.baseUrl}/posts/${editedPost.id}.json?auth=${vuexContext.state.token}`,
         editedPost
       );
       vuexContext.commit("editPost", editedPost);
