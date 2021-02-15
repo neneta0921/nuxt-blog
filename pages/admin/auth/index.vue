@@ -37,29 +37,19 @@ export default Vue.extend({
   },
   methods: {
     async onSubmit() {
+      let authUrl = "";
+      this.isLogin
+        ? (authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.fbAPIKey}`)
+        : (authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbAPIKey}`);
       try {
-        console.log(
-          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=${process.env.fbAPIKey}`
-        );
-        const res = await axios.post(
-          `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbAPIKey}`,
-          {
-            email: this.email,
-            password: this.password,
-            returnSecureToken: true,
-          }
-        );
+        const res = await axios.post(authUrl, {
+          email: this.email,
+          password: this.password,
+          returnSecureToken: true,
+        });
         console.log(res);
       } catch (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.log(error.response.data);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log("Error", error.message);
-        }
+        console.log(error);
       }
     },
   },
