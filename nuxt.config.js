@@ -1,6 +1,9 @@
 const bodyParser = require("body-parser");
+const axios = require("axios");
 
-export default {
+module.exports = {
+  // ssr: false,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "WD Blog",
@@ -71,5 +74,22 @@ export default {
     fbAPIKey: "AIzaSyDtYFcMhfNhtjhsrfTTOa8cZD-q2i0Xp3M"
   },
 
-  serverMiddleware: [bodyParser.json(), "~/api"]
+  serverMiddleware: [bodyParser.json(), "~/api"],
+
+  generate: {
+    routes: function() {
+      return axios
+        .get("https://nuxt-blog-e2622-default-rtdb.firebaseio.com/posts.json")
+        .then(res => {
+          const routes = [];
+          for (const key in res.data) {
+            routes.push({
+              route: "/posts/" + key,
+              payload: { postData: res.data[key] }
+            });
+          }
+          return routes;
+        });
+    }
+  }
 };

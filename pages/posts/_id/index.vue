@@ -25,6 +25,12 @@ import axios from "axios";
 
 export default Vue.extend({
   async asyncData(context) {
+    if (context.payload) {
+      return {
+        loadedPost: context.payload.postData
+      };
+    }
+
     try {
       const res = await axios.get(
         `${process.env.baseUrl}/posts/${context.params.id}.json`
