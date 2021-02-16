@@ -74,8 +74,6 @@ module.exports = {
     fbAPIKey: "AIzaSyDtYFcMhfNhtjhsrfTTOa8cZD-q2i0Xp3M"
   },
 
-  serverMiddleware: [bodyParser.json(), "~/api"],
-
   target: "static",
   router: {
     base: "/nuxt-blog/"
