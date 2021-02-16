@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/posts/-MTPKxijMKdZwkpuqjCR", (function(a){return {data:[{loadedPost:{author:"Neneta",content:a,id:"-MTPKxijMKdZwkpuqjCR",previewText:"work",thumbnail:"https:\u002F\u002Fwww.digieffects.com\u002Fwp-content\u002Fuploads\u002F2020\u002F08\u002FTech-news.jpg",title:a,updatedDate:"2021-02-13T07:43:02.989Z"}}],fetch:[],mutations:[]}}("Third Impact")));

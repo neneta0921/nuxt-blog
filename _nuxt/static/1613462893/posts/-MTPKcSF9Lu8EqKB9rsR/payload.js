@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/posts/-MTPKcSF9Lu8EqKB9rsR", {data:[{loadedPost:{author:"Neneta",content:"second test",id:"-MTPKcSF9Lu8EqKB9rsR",previewText:"OK",thumbnail:"https:\u002F\u002Fwww.digieffects.com\u002Fwp-content\u002Fuploads\u002F2020\u002F08\u002FTech-news.jpg",title:"Second test",updatedDate:"2021-02-13T07:41:36.597Z"}}],fetch:[],mutations:[]});
