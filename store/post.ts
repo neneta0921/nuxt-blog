@@ -65,10 +65,18 @@ export const actions = {
         password: authData.password,
         returnSecureToken: true
       });
-      return vuexContext.commit("setToken", res.data.idToken);
+      vuexContext.commit("setToken", res.data.idToken);
+      vuexContext.dispatch("setLogoutTimer", res.data.expiresIn * 1000);
+      return;
     } catch (error) {
       console.log(error);
     }
+  },
+
+  setLogoutTimer(vuexContext: any, duration: number) {
+    setTimeout(() => {
+      vuexContext.commit("clearToken");
+    }, duration);
   }
 };
 
@@ -92,5 +100,9 @@ export const mutations = {
 
   setToken(state: any, token: string) {
     state.token = token;
+  },
+
+  clearToken(state: any) {
+    state.token = null;
   }
 };
