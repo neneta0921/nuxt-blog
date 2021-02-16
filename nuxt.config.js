@@ -1,3 +1,5 @@
+const bodyParser = require("body-parser");
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -67,9 +69,7 @@ export default {
       process.env.BASE_URL ||
       "https://nuxt-blog-e2622-default-rtdb.firebaseio.com",
     fbAPIKey: "AIzaSyDtYFcMhfNhtjhsrfTTOa8cZD-q2i0Xp3M"
-  }
+  },
 
-  // router: {
-  //   middleware: "log"
-  // }
+  serverMiddleware: [bodyParser.json(), "~/api"]
 };
