@@ -4,7 +4,7 @@ const router = express.Router();
 
 const app = express();
 
-router.use((req: any, res: any, next: any) => {
+router.use((req, res, next) => {
   Object.setPrototypeOf(req, app.request);
   Object.setPrototypeOf(res, app.response);
   req.res = res;
@@ -12,7 +12,7 @@ router.use((req: any, res: any, next: any) => {
   next();
 });
 
-router.post("/track-data", (res: any, req: any) => {
+router.post("/track-data", (req, res) => {
   console.log("Stored data!", req.body.data);
   res.status(200).json({ message: "Success!" });
 });

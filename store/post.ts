@@ -83,7 +83,9 @@ export const actions = {
       Cookie.set("jwt", token);
       Cookie.set("expirationDate", expirationDate);
 
-      return;
+      return axios.post("http://localhost:3000/api/track-data", {
+        data: "Authenticated!"
+      });
     } catch (error) {
       console.log(error);
     }
