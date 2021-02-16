@@ -17,7 +17,7 @@ import Vue from "vue";
 
 export default Vue.extend({
   layout: "admin",
-  middleware: "auth",
+  middleware: ["check-auth", "auth"],
   computed: {
     loadedPosts() {
       return this.$store.getters["post/loadedPosts"];

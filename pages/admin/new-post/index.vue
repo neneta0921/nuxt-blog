@@ -14,7 +14,7 @@ import { PostData } from "@/types/post";
 
 export default Vue.extend({
   layout: "admin",
-  middleware: ["auth"],
+  middleware: ["check-auth", "auth"],
   components: {
     AdminPostForm,
   },

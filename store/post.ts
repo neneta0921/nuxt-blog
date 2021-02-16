@@ -65,8 +65,14 @@ export const actions = {
         password: authData.password,
         returnSecureToken: true
       });
+      const time: number = res.data.expiresIn * 1000;
       vuexContext.commit("setToken", res.data.idToken);
-      vuexContext.dispatch("setLogoutTimer", res.data.expiresIn * 1000);
+      localStorage.setItem("token", res.data.idToken);
+      localStorage.setItem(
+        "tokenExpiration",
+        new Date().getTime() + String(time)
+      );
+      vuexContext.dispatch("setLogoutTimer", time);
       return;
     } catch (error) {
       console.log(error);
@@ -77,6 +83,21 @@ export const actions = {
     setTimeout(() => {
       vuexContext.commit("clearToken");
     }, duration);
+  },
+
+  initAuth(vuexContext: any) {
+    const token = localStorage.getItem("token");
+    const expirationDate = Number(localStorage.getItem("tokenExpiration"));
+
+    if (new Date().getTime() > expirationDate || !token) {
+      return;
+    }
+
+    vuexContext.dispatch(
+      "setLogoutTimer",
+      expirationDate - new Date().getTime()
+    );
+    vuexContext.commit("setToken", token);
   }
 };
 
