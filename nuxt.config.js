@@ -77,6 +77,9 @@ module.exports = {
   serverMiddleware: [bodyParser.json(), "~/api"],
 
   target: "static",
+  router: {
+    base: "/nuxt-blog/"
+  },
 
   generate: {
     routes: function() {
