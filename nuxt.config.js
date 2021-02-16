@@ -77,9 +77,6 @@ module.exports = {
   serverMiddleware: [bodyParser.json(), "~/api"],
 
   target: "static",
-  router: {
-    base: "/<repository-name>/"
-  },
 
   generate: {
     routes: function() {
