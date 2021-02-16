@@ -9,6 +9,10 @@ export const state = () => ({
 export const getters = {
   loadedPosts(state: any) {
     return state.loadedPosts;
+  },
+
+  isAuthenticated(state: any) {
+    return state.token != null;
   }
 };
 

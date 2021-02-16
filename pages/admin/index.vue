@@ -17,11 +17,12 @@ import Vue from "vue";
 
 export default Vue.extend({
   layout: "admin",
+  middleware: "auth",
   computed: {
     loadedPosts() {
       return this.$store.getters["post/loadedPosts"];
-    }
-  }
+    },
+  },
 });
 </script>
 

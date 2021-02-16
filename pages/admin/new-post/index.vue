@@ -14,15 +14,16 @@ import { PostData } from "@/types/post";
 
 export default Vue.extend({
   layout: "admin",
+  middleware: ["auth"],
   components: {
-    AdminPostForm
+    AdminPostForm,
   },
   methods: {
     async onSubmitted(postData: PostData) {
       await this.$store.dispatch("post/addPost", postData);
       this.$router.push("/admin");
-    }
-  }
+    },
+  },
 });
 </script>
 

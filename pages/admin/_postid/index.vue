@@ -14,9 +14,9 @@ import { PostData } from "@/types/post";
 
 export default Vue.extend({
   layout: "admin",
-
+  middleware: "auth",
   components: {
-    AdminPostForm
+    AdminPostForm,
   },
 
   async asyncData(context) {
@@ -25,7 +25,7 @@ export default Vue.extend({
         `${process.env.baseUrl}/posts/${context.params.postId}.json`
       );
       return {
-        loadedPost: { ...res.data, id: context.params.postId }
+        loadedPost: { ...res.data, id: context.params.postId },
       };
     } catch (e) {
       context.error(e);
@@ -36,8 +36,8 @@ export default Vue.extend({
     async onSubmitted(editedPost: PostData) {
       await this.$store.dispatch("post/editPost", editedPost);
       this.$router.push("/admin");
-    }
-  }
+    },
+  },
 });
 </script>
 
