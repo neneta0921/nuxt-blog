@@ -16,11 +16,6 @@
       esse iure iusto nemo quasi hic atque dicta ipsa cum ducimus quod nulla
       nesciunt? Provident ullam eius architecto recusandae soluta.
     </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque veniam,
-      esse iure iusto nemo quasi hic atque dicta ipsa cum ducimus quod nulla
-      nesciunt? Provident ullam eius architecto recusandae soluta.
-    </p>
   </div>
 </template>
 
